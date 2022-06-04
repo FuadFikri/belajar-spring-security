@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 
-    @PreAuthorize("hasAuthority('EDIT_TRANSAKSI')")
+    @PreAuthorize("hasAnyAuthority('EDIT_TRANSAKSI','VIEW_TRANSAKSI')")
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(Authentication authentication) {
         log.info("user {}", authentication.getPrincipal());

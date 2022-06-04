@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Title</title>
 </head>
 <body>
 
 <h1>Welcome</h1>
+
+<ul>
+    <li sec:authorize="hasAuthority('VIEW_TRANSAKSI')">Lihat transaksi</li>
+    <li sec:authorize="hasAuthority('EDIT_TRANSAKSI')">Edit transaksi</li>
+</ul>
 
 <form th:action="@{/logout}"  method="post" >
     <input type="submit" value="logout">
