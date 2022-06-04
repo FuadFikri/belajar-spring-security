@@ -6,11 +6,16 @@
 </head>
 <body>
 
-<h1>Welcome</h1>
+<h1>Welcome <span sec:authentication="name">username</span>  </h1>
 
 <ul>
     <li sec:authorize="hasAuthority('VIEW_TRANSAKSI')">Lihat transaksi</li>
     <li sec:authorize="hasAuthority('EDIT_TRANSAKSI')">Edit transaksi</li>
+</ul>
+
+Daftar permission
+<ul>
+    <li th:each="perm : ${#authentication.authorities}" th:text="${perm}"> permission </li>
 </ul>
 
 <form th:action="@{/logout}"  method="post" >
